@@ -1,6 +1,6 @@
 import React from 'react'
 import {useNavigate} from "react-router-dom";
-import { goToPokedex } from "../../coordinator/Coordinator"
+import { goToPokedex} from "../../coordinator/Coordinator"
 
 const HeaderHome = () => {
     const navigate = useNavigate()
