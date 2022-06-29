@@ -2,6 +2,7 @@ import React from 'react'
 import HeaderPokedex from '../../components/headerPokedex/HeaderPokedex'
 import { goToPokemonDetail } from '../../coordinator/Coordinator'
 import { useNavigate } from "react-router-dom";
+import { FluxoryButtons } from '../../styles';
 
 const Pokedex = () => {
   const navigate = useNavigate()
@@ -9,7 +10,7 @@ const Pokedex = () => {
     <div>
       <HeaderPokedex/>
       <h1>Pokedex</h1>
-      <button onClick={() => goToPokemonDetail(navigate)}>Detalhe</button>
+      <FluxoryButtons onClick={() => goToPokemonDetail(navigate)}>Detalhe</FluxoryButtons>
     </div>
   )
 }
