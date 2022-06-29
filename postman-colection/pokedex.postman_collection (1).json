@@ -1,0 +1,28 @@
+{
+	"info": {
+		"_postman_id": "47a59988-0859-4d7b-856b-ff7cfba1c108",
+		"name": "pokedex",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21022180"
+	},
+	"item": [
+		{
+			"name": "getPokemons",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"description": "[`https://pokeapi.co/api/v2/pokemon/`](https://pokeapi.co/api/v2/pokemon/)\n\nPega lista de pokemons"
+			},
+			"response": []
+		},
+		{
+			"name": "getPokeDetails",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"description": "`https://pokeapi.co/api/v2/pokemon/:id`\n\ndetalhes de um pokemon passando seu id"
+			},
+			"response": []
+		}
+	]
+}
