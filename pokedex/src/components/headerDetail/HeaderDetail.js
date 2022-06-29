@@ -8,7 +8,7 @@ const HeaderDetail = () => {
     <div>
         <button onClick={() => goToHomePage(navigate)}>Ir para home</button>
         <button onClick={() => goToPokedex(navigate)}>Ir para pokedex</button>
-        <h1>HeaderDetail</h1>
+        <h1>HeaderDetail!</h1>
     </div>
   )
 }
