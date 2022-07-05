@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { base_url } from "../../constants/Constants"
 
+
+
 const CardPokemon = () => {
   const [pokemon, setPokemon] = useState([]);
 
@@ -25,6 +27,7 @@ const CardPokemon = () => {
         .catch((error) => console.log(error));
     }
     setPokemon(arry);
+    console.log('estado',pokemon)
   };
 
   useEffect(() => {
@@ -37,9 +40,10 @@ const CardPokemon = () => {
       .get(url)
       .then((res) => {
         setPokemonImagem(res.data.results);
+        console.log('pokemons',res)
       })
       .catch((erro) => {
-        console.log(erro.response.data);
+        console.log('pokemons',erro.response.data);
       });
   };
 

@@ -4,12 +4,9 @@ import HeaderHome from "../../components/headerHome/HeaderHome";
 import { ButtonsCard, Card } from "../../styles";
 import styled from "styled-components";
 import CardPokemon from "../../components/cardPokemon/CardPokemon";
+import Teste from "../../components/cardPokemon/Teste";
 
-const DivImg = styled.div`
-  background-color: blue;
-  height: 250px;
-  width: 100%;
-`;
+
 
 const DivCard = styled.div`
   display: flex;
@@ -34,29 +31,28 @@ const Home = () => {
       });
   };
 
-  const listPokemons = pokemon.map((pokemon) => {
-    return (
-      <div>
-        <Card>
-          <DivImg>{pokemon.name}</DivImg>
-          <div>
-            <ButtonsCard>adicionar a pokedex</ButtonsCard>
-            <ButtonsCard>detalhes</ButtonsCard>
-          </div>
-        </Card>
-      </div>
-    );
-  });
+  // const listPokemons = pokemon.map((pokemon) => {
+  //   return (
+  //     <div>
+  //       <Card>
+  //         <DivImg>{pokemon.name}</DivImg>
+  //         <div>
+  //           <ButtonsCard>adicionar a pokedex</ButtonsCard>
+  //           <ButtonsCard>detalhes</ButtonsCard>
+  //         </div>
+  //       </Card>
+  //     </div>
+  //   );
+  // });
   return (
     <div>
   
       <HeaderHome />
       <DivCard>
+      <Teste />
       
       </DivCard>
-      <CardPokemon />
       <div>Home</div>
-      <CardPokemon />
   
      
     </div>
