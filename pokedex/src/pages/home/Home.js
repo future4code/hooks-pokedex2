@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import HeaderHome from "../../components/headerHome/HeaderHome";
-import { ButtonsCard, Card } from "../../styles";
 import styled from "styled-components";
 import CardPokemon from "../../components/cardPokemon/CardPokemon";
-import Teste from "../../components/cardPokemon/Teste";
 
 
 
-const DivCard = styled.div`
+export const DivCard = styled.div`
   display: flex;
   flex-wrap: wrap;
-`;
+`
 const Home = () => {
   const [pokemon, setPokemon] = useState([]);
 
@@ -35,7 +33,7 @@ const Home = () => {
   
       <HeaderHome />
       <DivCard>
-      <Teste />
+      <CardPokemon />
       
       </DivCard>
       <div>Home</div>

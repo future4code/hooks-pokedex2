@@ -10,12 +10,36 @@ overflow-y: scroll;
 display: flex;
 flex-direction: column;
 align-items: center;
+position: relative;
+scrollbar-width:none;
+    -ms-overflow-style:none;
+    
+
+    &::-webkit-scrollbar{
+    width:0;
+    height:0;
+  }
 
 div{
   display: flex;
 flex-direction: column;
 align-items: center;
 }
+
+img{
+  height: 200px;
+  width: 200px;
+}
+`
+const ButtonGoBack = styled.button`
+position: fixed;
+font-size: 1.5em;
+font-weight: 600;
+background-color: transparent;
+border-radius: 50%;
+
+margin-left: calc((250px*1.5)/2);
+cursor: pointer;
 `
 
 const Div = styled.div`
@@ -57,7 +81,7 @@ const PokemonDetail = ({pokemonDetail, seeDetails}) => {
       <div>
         <h3>Moves</h3>
         <p>{pokemonDetail.moves[0].move.name}</p><p>{pokemonDetail.moves[1].move.name}</p></div>
-    <button onClick={seeDetails} >go back</button>
+    <ButtonGoBack onClick={seeDetails} >x</ButtonGoBack>
   </DetailsDiv>
   </Div>
   

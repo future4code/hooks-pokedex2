@@ -2,7 +2,6 @@ import axios from "axios"
 import { useContext, useEffect } from "react"
 import { useState } from "react"
 import styled from "styled-components"
-import { base_url } from "../../constants/Constants"
 import { PokemonsContext } from "../../GlobalStateContext/Context"
 import PokemonDetail from "../../pages/pokemon-detail/PokemonDetail"
 import { Card, ButtonsCard } from "../../styles"
@@ -17,7 +16,7 @@ const DivImg = styled.div`
   width: 100%;
   `
 
-const PokeCard = ({pokemon})=>{
+const PokeCard = ({pokemon, page})=>{
     const [pokemonDetail, setPokemonDetail] = useState({})
     const [detailRendering, setDetailRendering] = useState(false)
     
@@ -42,13 +41,13 @@ const PokeCard = ({pokemon})=>{
      }
 
      const {methods} = useContext(PokemonsContext)
-     const {addPokemonToPokedex} = methods
+     const {addPokemonToPokedex, removeFromPokedex} = methods
 
      const CardPokemon = pokemonDetail.name && <Card>
      <DivImg><Img src={pokemonDetail.sprites.other.dream_world.front_default} /></DivImg>
      <h2>{pokemonDetail.name}</h2>
      <div>
-       <ButtonsCard onClick={()=>addPokemonToPokedex(pokemon)}>adicionar a pokedex</ButtonsCard>
+      {page==='Home'?<ButtonsCard onClick={()=>addPokemonToPokedex(pokemon)}>adicionar a pokedex</ButtonsCard> : <ButtonsCard onClick={()=>removeFromPokedex(pokemon)}>remover da pokedex</ButtonsCard>} 
        <ButtonsCard onClick={seeDetails}>detalhes</ButtonsCard>
      </div>
      </Card>
