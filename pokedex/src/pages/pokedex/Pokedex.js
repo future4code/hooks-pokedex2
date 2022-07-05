@@ -1,16 +1,28 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import HeaderPokedex from '../../components/headerPokedex/HeaderPokedex'
 import { goToPokemonDetail } from '../../coordinator/Coordinator'
 import { useNavigate } from "react-router-dom";
 import { FluxoryButtons } from '../../styles';
+import { PokemonsContext } from '../../GlobalStateContext/Context';
+import PokeCard from '../../components/cardPokemon/PokeCard';
+import { DivCard } from '../home/Home';
 
 const Pokedex = () => {
-  const navigate = useNavigate()
+  const {states} = useContext(PokemonsContext)
+
+  const {pokemonsInPokedex} = states;
+
+  const pokeCard = pokemonsInPokedex.length>0 && pokemonsInPokedex.map((poke, i)=>{
+    return <PokeCard key={i} pokemon={poke} page={'Pokedex'} />
+})
   return (
     <div>
       <HeaderPokedex/>
-      <h1>Pokedex</h1>
-      <FluxoryButtons onClick={() => goToPokemonDetail(navigate)}>Detalhe</FluxoryButtons>
+
+      <DivCard>
+      {pokeCard}
+      </DivCard>
+      
     </div>
   )
 }

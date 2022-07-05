@@ -69,11 +69,17 @@ transition: 500ms;
 display: flex;
 flex-direction: column;
 align-items: center;
+margin-bottom: 30px;
+padding-top: 15px;
 
 
 &:hover{
     transition: 500ms;
     transform: scale(1.1);
+    img{
+      transition: 500ms;
+      transform: scale(1.15);
+    }
 }
 `
 
@@ -81,4 +87,5 @@ export const ButtonsCard = styled.button`
 background-color: black;
 color: white;
 margin-right: 5px;
+cursor: pointer;
 `

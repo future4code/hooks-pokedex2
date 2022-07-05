@@ -1,68 +1,23 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { base_url } from "../../constants/Constants"
+import { useContext } from "react";
+import PokeCard from "./PokeCard";
+import {PokemonsContext} from '../../GlobalStateContext/Context'
 
-const CardPokemon = () => {
-  const [pokemon, setPokemon] = useState([]);
+const CardPokemon = () =>{
 
-  const setPokemonImagem = (pokemons) => {
-    let arry = [];
-    for (var i = 0; i < pokemons.length; i++) {
-      const urlDetalhesPokemon = `${base_url}pokemon/${pokemons[i].name}`;
-      // declarando um url para pegar os detalhes de cada poke
-      axios
-        .get(urlDetalhesPokemon)
-        .then(
-          (resposta) =>
-          {
-          console.log(resposta)
-            arry.push({
-              name: resposta.data.name,
-              url: resposta.data.sprites.other.dream_world.front_default,
-            })
-        }
-        )
-        .catch((error) => console.log(error));
-    }
-    setPokemon(arry);
-  };
+    const {states}= useContext(PokemonsContext);
 
-  useEffect(() => {
-    handlePokemons();
-  }, []);
+    const {pokemonsList, pokemonsListIsLoading} = states;
 
-  const handlePokemons = () => {
-    const url = `${base_url}pokemon${pokemon}`;
-    axios
-      .get(url)
-      .then((res) => {
-        setPokemonImagem(res.data.results);
-      })
-      .catch((erro) => {
-        console.log(erro.response.data);
-      });
-  };
+    
 
-  const listPokemons = pokemon.map((pokemon) => {
-    return (
-      <div>
-        <div>
-          <div>{pokemon.name}</div>
-          <img src={pokemon.url} />
-          <div>
-            <button>adicionar a pokedex</button>
-            <button>detalhes</button>
-          </div>
-        </div>
-      </div>
-    );
-  });
+    const pokeCard = pokemonsList && pokemonsList.map((poke, i)=>{
+        return <PokeCard key={i} pokemon={poke} page={'Home'} />
+    })
 
-  return (
-    <div>
-      {listPokemons}
-    </div>
-  );
-};
+    return <>
+    {pokemonsListIsLoading && <p>carregando...</p>}
+    {!pokemonsListIsLoading && pokeCard}
+    </>
+}
 
-export default CardPokemon;
+export default CardPokemon
