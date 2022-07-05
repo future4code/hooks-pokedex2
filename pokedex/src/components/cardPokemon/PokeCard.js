@@ -1,8 +1,9 @@
 import axios from "axios"
-import { useEffect } from "react"
+import { useContext, useEffect } from "react"
 import { useState } from "react"
 import styled from "styled-components"
 import { base_url } from "../../constants/Constants"
+import { PokemonsContext } from "../../GlobalStateContext/Context"
 import PokemonDetail from "../../pages/pokemon-detail/PokemonDetail"
 import { Card, ButtonsCard } from "../../styles"
 
@@ -14,7 +15,7 @@ height: 200px;
 const DivImg = styled.div`
   height: 250px;
   width: 100%;
-  `;
+  `
 
 const PokeCard = ({pokemon})=>{
     const [pokemonDetail, setPokemonDetail] = useState({})
@@ -22,7 +23,7 @@ const PokeCard = ({pokemon})=>{
     
     useEffect(()=>{
        getPokemon()
-    },[])
+    },[pokemon])
     
      const getPokemon = ()=>{
         axios
@@ -40,11 +41,14 @@ const PokeCard = ({pokemon})=>{
         setDetailRendering(!detailRendering)
      }
 
+     const {methods} = useContext(PokemonsContext)
+     const {addPokemonToPokedex} = methods
+
      const CardPokemon = pokemonDetail.name && <Card>
      <DivImg><Img src={pokemonDetail.sprites.other.dream_world.front_default} /></DivImg>
      <h2>{pokemonDetail.name}</h2>
      <div>
-       <ButtonsCard>adicionar a pokedex</ButtonsCard>
+       <ButtonsCard onClick={()=>addPokemonToPokedex(pokemon)}>adicionar a pokedex</ButtonsCard>
        <ButtonsCard onClick={seeDetails}>detalhes</ButtonsCard>
      </div>
      </Card>

@@ -1,18 +1,23 @@
 
-import HookTeste from "./HookTeste";
+import { useContext } from "react";
 import PokeCard from "./PokeCard";
+import {PokemonsContext} from '../../GlobalStateContext/Context'
 
 const Teste = () =>{
 
-    const [pokemonsData] = HookTeste('pokemon')
+    const {states}= useContext(PokemonsContext);
 
-    console.log(pokemonsData)
-    const pokeCard = pokemonsData.results && pokemonsData.results.map((poke)=>{
-        return <PokeCard pokemon={poke} />
+    const {pokemonsList, pokemonsListIsLoading} = states;
+
+    
+
+    const pokeCard = pokemonsList && pokemonsList.map((poke, i)=>{
+        return <PokeCard key={i} pokemon={poke} />
     })
 
     return <>
-    {pokeCard}
+    {pokemonsListIsLoading && <p>carregando...</p>}
+    {!pokemonsListIsLoading && pokeCard}
     </>
 }
 

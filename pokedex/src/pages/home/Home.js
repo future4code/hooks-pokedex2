@@ -24,26 +24,12 @@ const Home = () => {
       .get("https://pokeapi.co/api/v2/pokemon/")
       .then((res) => {
         setPokemon(res.data.results);
-        // console.log(res.data.results)
       })
       .catch((erro) => {
         console.log(erro);
       });
   };
 
-  // const listPokemons = pokemon.map((pokemon) => {
-  //   return (
-  //     <div>
-  //       <Card>
-  //         <DivImg>{pokemon.name}</DivImg>
-  //         <div>
-  //           <ButtonsCard>adicionar a pokedex</ButtonsCard>
-  //           <ButtonsCard>detalhes</ButtonsCard>
-  //         </div>
-  //       </Card>
-  //     </div>
-  //   );
-  // });
   return (
     <div>
   
