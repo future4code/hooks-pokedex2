@@ -1,8 +1,9 @@
 import styled, { createGlobalStyle } from "styled-components";
 
+// estilo global
 export const GlobalStyle = createGlobalStyle`
 body{
-    background-color: ${({theme}) => theme.bg};
+    background-color: #fff;
     width: 100%;
     min-height: 100vh;
 }
@@ -45,7 +46,7 @@ margin-right: 25px;
 `
 
 export const Header = styled.div`
-background: linear-gradient(#5EBBE0, ${({theme})=> theme.bg});
+background: linear-gradient(#5EBBE0, #fff);
 display: flex;
 align-items: center;
 justify-content: space-between;
@@ -67,12 +68,11 @@ width: 250px;
 border-radius: 15px;
 padding-bottom: 20px;
 box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-margin-left: 50px;
+margin: 0 10px 30px 10px;
 transition: 500ms;
 display: flex;
 flex-direction: column;
 align-items: center;
-margin-bottom: 30px;
 padding-top: 15px;
 
 img{
@@ -87,7 +87,6 @@ h2{
 
 &:hover{
     transition: 500ms;
-    /* transform: scale(1.1); */
     img{
       transition: 500ms;
       transform: scale(1.4);

@@ -1,7 +1,7 @@
 import React from 'react'
 import {useNavigate} from "react-router-dom";
-import { goToPokedex, goToHomePage } from "../../coordinator/Coordinator"
-import { FluxoryButtons, Header, Title } from '../../styles';
+import { goToPokedex, goToHomePage } from "../../../coordinator/Coordinator"
+import { FluxoryButtons, Header, Title } from '../../../styles';
 
 const HeaderDetail = () => {
     const navigate = useNavigate()

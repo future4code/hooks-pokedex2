@@ -8,14 +8,13 @@ const CardPokemon = () =>{
 
     const {pokemonsList, pokemonsListIsLoading} = states;
 
-    
-
+    // cards dos pokemon exibidos na home
     const pokeCard = pokemonsList && pokemonsList.map((poke, i)=>{
         return <PokeCard key={i} pokemon={poke} page={'Home'} />
     })
 
     return <>
-    {pokemonsListIsLoading && <p>carregando...</p>}
+    {pokemonsListIsLoading && <p>carregando...</p>} 
     {!pokemonsListIsLoading && pokeCard}
     </>
 }
