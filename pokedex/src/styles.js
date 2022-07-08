@@ -56,13 +56,16 @@ export const Title =  styled.h1`
 margin-left: 25px;
 font-family: 'Pokemon solid', sans-serif;
 font-weight: 400;
-color: ${({theme}) => theme.titles};
+-webkit-text-stroke: 2px #3761a8;
+color:  #feca1b;
 `
 
 export const Card = styled.div`
 background-color: lightgray;
 height: 350px;
 width: 250px;
+border-radius: 15px;
+padding-bottom: 20px;
 box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 margin-left: 50px;
 transition: 500ms;
@@ -72,19 +75,30 @@ align-items: center;
 margin-bottom: 30px;
 padding-top: 15px;
 
+img{
+  transition: 500ms;
+}
+
+h2{
+      text-transform: uppercase;
+      filter: drop-shadow(0 0 10px rgb(255,255,255,1))
+    }
+
 
 &:hover{
     transition: 500ms;
-    transform: scale(1.1);
+    /* transform: scale(1.1); */
     img{
       transition: 500ms;
-      transform: scale(1.15);
+      transform: scale(1.4);
     }
 }
 `
 
 export const ButtonsCard = styled.button`
-background-color: black;
+background-color: transparent;
+border-radius: 8px;
+
 color: white;
 margin-right: 5px;
 cursor: pointer;
