@@ -2,14 +2,14 @@ import { useContext } from "react";
 import PokeCard from "./PokeCard";
 import {PokemonsContext} from '../../GlobalStateContext/Context'
 
-const CardPokemon = () =>{
+const CardPokemon = ({pokemonsOnScreen}) =>{
 
     const {states}= useContext(PokemonsContext);
 
-    const {pokemonsList, pokemonsListIsLoading} = states;
+    const { pokemonsListIsLoading} = states;
 
     // cards dos pokemon exibidos na home
-    const pokeCard = pokemonsList && pokemonsList.map((poke, i)=>{
+    const pokeCard = pokemonsOnScreen && pokemonsOnScreen.map((poke, i)=>{
         return <PokeCard key={i} pokemon={poke} page={'Home'} />
     })
 

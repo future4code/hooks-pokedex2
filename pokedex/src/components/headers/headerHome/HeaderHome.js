@@ -14,7 +14,7 @@ const HeaderHome = () => {
     <Header>
         <Title>Lista de Pokémons</Title>
       <ButtonDiv>
-        <FluxoryButtons onClick={() => goToPokedex(navigate)}>Ir para pokedex</FluxoryButtons>
+        <FluxoryButtons onClick={() => goToPokedex(navigate)}>Pokedex</FluxoryButtons>
       </ButtonDiv>
     </Header>
   )
