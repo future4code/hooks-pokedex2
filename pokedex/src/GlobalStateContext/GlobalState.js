@@ -32,7 +32,7 @@ const GlobalState = (props) =>{
         )
     
     useEffect(()=>{
-        allPokemonsLocalStorage && getPokemons()
+        getPokemons()
     }
     ,[])
 
@@ -52,27 +52,38 @@ const GlobalState = (props) =>{
 
 
     const getPokemons = ()=>{
-        axios
-        .get(`${base_url}pokemon?limit=100000&offset=0`)
-        .then((res)=>{
-            const pokemonsInPokedexNames = pokemonsInPokedex.map((poke)=>{
-                return poke.name
-            })
-            const pokemonsNotInPokedex = res.data.results.filter((poke)=>{
-                return !pokemonsInPokedexNames.includes(poke.name)
-            })
+        if(!allPokemons.length>0){
 
+            setPokemonsListIsloading(true)
+            axios
+            .get(`${base_url}pokemon?limit=100000&offset=0`)
+            .then((res)=>{
+            
             setAllpokemons(res.data.results)
             localStorage.setItem('allPokemons', JSON.stringify(res.data.results))
-            setPokemonsList(pokemonsNotInPokedex)
+            setPokemonsList(res.data.results)
             setPokemonsListIsloading(false)
         })
         .catch((err)=>{
             console.log('error in request pokemons list', err)
             setPokemonsListIsloading(false)
         })
-    }
 
+    } else{
+        const pokemonsInPokedexNames = pokemonsInPokedex.length>0? pokemonsInPokedex.map((poke)=>{
+            return poke.name
+        }) : []
+
+        const pokemonsNotInPokedex = allPokemons.filter((poke)=>{
+            return pokemonsInPokedexNames.length>0? !pokemonsInPokedexNames.includes(poke.name) : true
+        })
+        
+        setPokemonsList(pokemonsNotInPokedex)
+
+        setPokemonsListIsloading(false)
+    }
+    }
+    
     const verifyPokemonIsInPokedex = (pokemon) =>{
         const filter = pokemonsInPokedex.filter((poke)=>{
             return poke.name===pokemon.name
@@ -111,6 +122,8 @@ const GlobalState = (props) =>{
 
     return <PokemonsContext.Provider value={{states, setters, methods}}>
         {props.children}
+        {console.log('all pokemons', allPokemonsLocalStorage)}
+        {console.log('pokemons list',pokemonsList)}
     </PokemonsContext.Provider>
 }
 
