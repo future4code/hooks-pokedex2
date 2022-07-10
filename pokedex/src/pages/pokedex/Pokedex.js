@@ -5,6 +5,7 @@ import PokeCard from '../../components/cardPokemon/PokeCard';
 import { DivCard, DivPagination } from '../home/Home';
 import PaginationComponent from '../../components/Pagination/PaginationCompomnent';
 import styled from 'styled-components';
+import broom from '../../images/broom.png'
 
 const DivCleanButton = styled(DivPagination)`
 border: 5px 0;
@@ -62,7 +63,7 @@ const Pokedex = () => {
       <HeaderPokedex/>
 
       <DivCleanButton>
-        <button onClick={cleanPokedex}><img src='https://cdn-icons.flaticon.com/png/512/2954/premium/2954888.png?token=exp=1657479926~hmac=f3f2e9c9ed48f0b6f13da83847b0e114' alt='limpar pokedex imagem'/></button>
+        <button onClick={cleanPokedex}><img src={broom} alt='limpar pokedex imagem'/></button>
       </DivCleanButton>
 
      {pokemonsInPokedex.length>0 && <DivPagination>
