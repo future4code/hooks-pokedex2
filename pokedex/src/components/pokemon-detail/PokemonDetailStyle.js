@@ -41,8 +41,8 @@ scrollbar-width:none;
 
 img{
   filter: drop-shadow(5px 5px 5px #222);
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
 }
 img:nth-of-type(1){
   align-self: flex-end;

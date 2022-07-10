@@ -59,6 +59,10 @@ font-family: 'Pokemon solid', sans-serif;
 font-weight: 400;
 -webkit-text-stroke: 2px #3761a8;
 color:  #feca1b;
+
+@media screen and (max-width: 450px){
+  font-size: 22px;
+}
 `
 
 export const Card = styled.div`

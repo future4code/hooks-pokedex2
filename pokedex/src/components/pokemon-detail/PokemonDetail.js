@@ -4,7 +4,7 @@ import {DetailsDiv, ButtonGoBack, Div, InfosDiv} from './PokemonDetailStyle'
 const PokemonDetail = ({pokemonDetail, seeDetails, typeColor}) => {
  
   // card de detalhes de cada pokemon
-  const Card =  pokemonDetail.name && <Div>
+  const Card =  pokemonDetail.name && pokemonDetail.moves.length>0? <Div>
   <DetailsDiv style={{backgroundColor: `${typeColor}`}}>
 
 
@@ -58,7 +58,11 @@ const PokemonDetail = ({pokemonDetail, seeDetails, typeColor}) => {
     </div>
     <ButtonGoBack onClick={seeDetails} >x</ButtonGoBack>
   </DetailsDiv>
-  </Div>
+  </Div> 
+    :
+    <Div><DetailsDiv style={{backgroundColor: `${typeColor}`}} >
+    <h1>nenhum detalhe encontrado</h1>
+   <ButtonGoBack onClick={seeDetails} >x</ButtonGoBack> </DetailsDiv></Div>
   
   return (
    <>{Card}</>
