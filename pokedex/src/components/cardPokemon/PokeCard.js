@@ -35,6 +35,7 @@ const PokeCard = ({pokemon, page})=>{
 
      const typeColor = defineBgColor(pokemonDetail)
 
+    //  Card específico de cada pokemon (tanto na home quanto na pokedex)
      const CardPokemon = pokemonDetail.name && <Card style={{backgroundColor: `${typeColor}`}}>
      <DivImg><Img src={pokemonDetail.sprites.other.dream_world.front_default} alt={`imagem do ${pokemonDetail.name}`}/></DivImg>
      

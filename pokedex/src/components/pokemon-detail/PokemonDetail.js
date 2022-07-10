@@ -3,7 +3,7 @@ import {DetailsDiv, ButtonGoBack, Div, InfosDiv} from './PokemonDetailStyle'
 
 const PokemonDetail = ({pokemonDetail, seeDetails, typeColor}) => {
  
-  // card especifico de cada pokemon
+  // card de detalhes de cada pokemon
   const Card =  pokemonDetail.name && <Div>
   <DetailsDiv style={{backgroundColor: `${typeColor}`}}>
 
