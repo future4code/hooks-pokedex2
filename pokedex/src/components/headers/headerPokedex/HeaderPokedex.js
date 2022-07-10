@@ -1,7 +1,7 @@
 import React from 'react'
 import {useNavigate} from "react-router-dom";
-import { goToHomePage } from '../../coordinator/Coordinator';
-import { FluxoryButtons, Header, Title } from '../../styles';
+import { goToHomePage } from '../../../coordinator/Coordinator';
+import { FluxoryButtons, Header, Title } from '../../../styles';
 
 const HeaderPokedex = () => {
   const navigate = useNavigate()
@@ -9,7 +9,7 @@ const HeaderPokedex = () => {
   return (
     <Header>
         <Title>Pokedex!!</Title>
-        <FluxoryButtons onClick={()=> goToHomePage(navigate)} >Voltar para lista de pokemons</FluxoryButtons>
+        <FluxoryButtons onClick={()=> goToHomePage(navigate)} >Voltar</FluxoryButtons>
     </Header>
   )
 }
